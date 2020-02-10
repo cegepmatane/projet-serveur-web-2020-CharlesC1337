@@ -26,6 +26,9 @@ $listVoiture = $requeteListeVoiture->fetchAll();
 			<a href="modifier-voiture.php?voiture=<?php echo $voiture['id']; ?>" title="">
 				Modifier
 			</a>
+			<a href="supprimer-voiture.php?id=<?php echo $voiture['id']; ?>" title="">
+				Supprimer
+			</a>
 		</div>		
 		<?php 		
 	}
