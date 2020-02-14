@@ -2,7 +2,7 @@
 * {font-family:Arial;}
 body > header, body > section {padding:2em;}
 h2 {color:#66fcf1; text-transform: uppercase;}
-h1 {background-color:#1f2833;color:#66fcf1;padding:1em;text-transform: uppercase;}
+h1, footer {background-color:#1f2833;color:#66fcf1;padding:1em;text-transform: uppercase; border-radius: 2px;}
 #contenu {padding:2em;}
 form {border:solid #1f2833 2px; background-color:#45a29e; padding:1em;}
 form > div {margin-top:1em;}
@@ -19,10 +19,16 @@ body{
     font-family: Arial;
 }
 
+footer{
+    font-weight: bold;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
 /*  DROPDOWN MENU START */
 .dropbtn {
     background-color: #45a29e;
-    color: c5c6c7;
+    color: #c5c6c7;
     padding: 16px;
     font-size: 16px;
     border: none;

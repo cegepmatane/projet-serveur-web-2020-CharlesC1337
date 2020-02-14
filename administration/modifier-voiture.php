@@ -27,7 +27,7 @@
 	<section id="contenu">
 		<header><h2>Modifier une Voiture</h2></header>
 		
-		<form action="traitement-modifier-voiture.php" method="post">
+		<form action="traitement-modifier-voiture.php" method="post" enctype="multipart/form-data">
 		
 			<div class="champs">
 				<label for="marque">Marque</label>
@@ -47,7 +47,12 @@
 			<div class="champs">
 				<label for="description">Description</label>
 				<textarea name="description" id="description"><?=$voiture['description']?></textarea>			
-			</div>								
+			</div>	
+			
+			<div class="champs">
+				<label for="image">Image</label>
+				<input type="file" name="image" id="image"/>			
+			</div>
 			
 			<input type="submit" value="Enregistrer">
 			<input type="hidden" name="id" value="<?=$voiture['id']?>"/>
@@ -55,6 +60,6 @@
 	
 	</section>
 	
-	<footer><span id="Par Charles"></span></footer>
+	<footer><span id="signature">Par Charles</span></footer>
 </body>
 </html>

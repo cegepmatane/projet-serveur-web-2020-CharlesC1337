@@ -14,7 +14,7 @@
 	<section id="contenu">
 		<header><h2>Ajouter une voiture</h2></header>
 		
-		<form action="traitement-ajouter-voiture.php" method="post">
+		<form action="traitement-ajouter-voiture.php" method="post" enctype="multipart/form-data">
 		
 			<div class="champs">
 				<label for="marque">Marque</label>
@@ -34,13 +34,18 @@
 			<div class="champs">
 				<label for="description">Description</label>
 				<textarea name="description" id="description"></textarea>			
-			</div>				
+			</div>		
+			
+			<div class="champs">
+				<label for="image">Image</label>
+				<input type="file" name="image" id="image"/>			
+			</div>
 			
 			<input type="submit" value="Enregistrer">
 		</form>
 	
 	</section>
 	
-	<footer><span id="Par Charles"></span></footer>
+	<footer><span id="signature">Par Charles</span></footer>
 </body>
 </html>

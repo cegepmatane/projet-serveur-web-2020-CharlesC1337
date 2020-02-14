@@ -10,7 +10,7 @@ $listVoiture = $requeteListeVoiture->fetchAll();
 <!doctype html>
 <html lang="fr">
 <head>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
 	<meta charset="utf-8">
 	<title>Wiki Rallye Groupe B</title>
 </head>
@@ -40,6 +40,6 @@ $listVoiture = $requeteListeVoiture->fetchAll();
 
 	</section>
 	
-	<footer><span id="signature"></span></footer>
+	<footer><span id="signature">Par Charles</span></footer>
 </body>
 </html>
