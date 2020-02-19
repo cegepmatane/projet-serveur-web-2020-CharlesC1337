@@ -19,9 +19,9 @@ include "connexion.php";
 
 $id = $_POST['id'];
 $marque = addslashes($_POST['marque']);
-$modele = $_POST['modele'];
-$annee = $_POST['annee'];
-$description = $_POST['description'];
+$modele = addslashes($_POST['modele']);
+$annee = addslashes($_POST['annee']);
+$description = addslashes($_POST['description']);
 
 $SQL_MODIFIER_VOITURE = "UPDATE rallye SET marque = '$marque', modele='$modele', annee='$annee', description='$description', image='$image' WHERE id = " . $id;
 
