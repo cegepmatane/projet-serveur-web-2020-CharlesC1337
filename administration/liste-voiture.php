@@ -1,10 +1,8 @@
 <?php
-include "connexion.php";
-$MESSAGE_SQL_LISTE_VOITURE = "SELECT id, marque, modele FROM rallye;";
+require "../configuration.php";
+require CHEMIN_ACCESSEUR . "VoitureDAO.php";
 
-$requeteListeVoiture = $basededonnees->prepare($MESSAGE_SQL_LISTE_VOITURE);
-$requeteListeVoiture->execute();
-$listVoiture = $requeteListeVoiture->fetchAll();
+$listVoiture = VoitureDAO::listerVoiture();
 ?>
 
 <!doctype html>
@@ -26,7 +24,7 @@ $listVoiture = $requeteListeVoiture->fetchAll();
 			<a href="modifier-voiture.php?voiture=<?php echo $voiture['id']; ?>" title="">
 				Modifier
 			</a>
-			<a href="supprimer-voiture.php?id=<?php echo $voiture['id']; ?>" title="">
+			<a href="supprimer-voiture.php?voiture=<?php echo $voiture['id']; ?>" title="">
 				Supprimer
 			</a>
 		</div>		

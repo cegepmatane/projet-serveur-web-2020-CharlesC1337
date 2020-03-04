@@ -1,14 +1,9 @@
 <?php
-	
-	include "connexion.php";
+	require "../configuration.php";
+	require CHEMIN_ACCESSEUR . "VoitureDAO.php";
 
 	$noVoiture = $_GET['voiture'];
-
-	$SQL_VOITURE = "SELECT * from rallye WHERE id = " . $noVoiture;
-	
-	$requeteVoiture = $basededonnees->prepare($SQL_VOITURE);
-	$requeteVoiture->execute();
-	$voiture = $requeteVoiture->fetch();
+	$voiture = VoitureDAO::lireVoiture($noVoiture);
 ?>
 
 <!doctype html>
@@ -27,7 +22,7 @@
 	<section id="contenu">
 		<header><h2>Modifier une Voiture</h2></header>
 		
-		<form action="traitement-modifier-voiture.php" method="post" enctype="multipart/form-data">
+		<form action="traitement-modifier-voiture.php?voiture=<?php echo $voiture['id']; ?>" method="post" enctype="multipart/form-data">
 		
 			<div class="champs">
 				<label for="marque">Marque</label>

@@ -1,13 +1,10 @@
 <?php
+require "../configuration.php";
+require CHEMIN_ACCESSEUR . "VoitureDAO.php";
 
-include "connexion.php"; 
+$noVoiture = $_GET['voiture'];
 
-$id = $_GET['id'];
-
-$SQL_SUPPRIMER_VOITURE = "DELETE FROM rallye WHERE id = " . $id;
-
-$requeteSupprimerVoiture = $basededonnees->prepare($SQL_SUPPRIMER_VOITURE);
-$reussiteSupprimer = $requeteSupprimerVoiture->execute();
+$reussiteSupprimer = VoitureDAO::supprimerVoiture($noVoiture);
 ?>
 
 

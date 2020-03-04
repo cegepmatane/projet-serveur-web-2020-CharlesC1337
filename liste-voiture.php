@@ -1,10 +1,8 @@
 <?php
-include "connexion.php";
-$MESSAGE_SQL_LISTE_VOITURE = "SELECT id, marque, modele, annee FROM rallye;";
+require "configuration.php";
+require CHEMIN_ACCESSEUR . "VoitureDAO.php";
 
-$requeteListeVoiture = $connexion->prepare($MESSAGE_SQL_LISTE_VOITURE);
-$requeteListeVoiture->execute();
-$listVoiture = $requeteListeVoiture->fetchAll();
+$listVoiture = VoitureDAO::listerVoiture();
 ?>
 
 <!doctype html>

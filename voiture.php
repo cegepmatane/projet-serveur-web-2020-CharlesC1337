@@ -1,14 +1,9 @@
 <?php
-include "connexion.php";
+require "configuration.php";
+require CHEMIN_ACCESSEUR . "VoitureDAO.php";
 
-$id = $_GET["id"];
-
-$MESSAGE_SQL_VOITURE = "SELECT id, marque, modele, annee, description, image FROM rallye WHERE id=" . $id . ";";
-
-$requeteVoiture = $connexion->prepare($MESSAGE_SQL_VOITURE);
-$requeteVoiture->execute();
-$voiture = $requeteVoiture->fetch();
-
+$id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+$voiture = VoitureDAO::lireVoiture($id);
 ?> 
 
 <!doctype html>

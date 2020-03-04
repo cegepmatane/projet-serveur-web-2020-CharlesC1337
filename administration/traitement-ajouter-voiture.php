@@ -1,4 +1,6 @@
 <?php
+require "../configuration.php";
+require CHEMIN_ACCESSEUR . "VoitureDAO.php";
 
 $repertoireImage = $_SERVER['DOCUMENT_ROOT'] . "/ProjetListPhp/projet-serveur-web-2020-CharlesC1337/images/";
 
@@ -15,17 +17,18 @@ if(move_uploaded_file($fichierSource,$fichierDestination))
 	<?php
 }
 
-include "connexion.php"; 
+$filtresVoiture = [];
 
-$marque = addslashes($_POST['marque']);
-$modele = $_POST['modele'];
-$annee = $_POST['annee'];
-$description = $_POST['description'];
+$filtresVoiture['marque'] = FILTER_SANITIZE_ENCODED;
+$filtresVoiture['modele'] = FILTER_SANITIZE_ENCODED;
+$filtresVoiture['annee'] = FILTER_SANITIZE_ENCODED;
+$filtresVoiture['description'] = FILTER_SANITIZE_ENCODED;
+  
+$voiture = filter_input_array(INPUT_POST, $filtresVoiture);
 
-$SQL_AJOUTER_VOITURE = "INSERT into rallye(marque, modele, annee, description, image) VALUES('".$marque."','" . $modele . "','" . $annee . "','" . $description . "', '" . $image . "');";
+$voiture['image'] = $image;
 
-$requeteAjouterVoiture = $basededonnees->prepare($SQL_AJOUTER_VOITURE);
-$reussiteAjout = $requeteAjouterVoiture->execute();
+$reussiteAjout = VoitureDAO::ajouterVoiture($voiture);
 ?>
 
 <?php
