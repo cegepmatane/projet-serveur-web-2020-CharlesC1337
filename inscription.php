@@ -11,7 +11,7 @@
 		</div>
 
 		<div class="champs">
-			<label for="motDePasse">Mot De Passe</label>
+			<label for="motDePasse">Mot de passe</label>
 			<input type="password" name="motDePasse" id="motDePasse"/>			
 		</div>
 		

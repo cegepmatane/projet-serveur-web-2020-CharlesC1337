@@ -36,10 +36,33 @@ footer{
     font-weight: bold;
 }
 
-.menu a{
+nav{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+.menuPrincipale{
+    background-color: #45a29e;
+    float: left;
+    display: block;
+    color: #c5c6c7;
+    text-align: center;
+    padding: 14px 16px;
     text-decoration: none;
-    color: #d8d9da;
-    font-weight: bold;
+    border-right: 1px solid #bbb;
+}
+
+.menuPrincipale:last-child {
+    border-right: none;
+}
+
+.menuPrincipale:hover{
+    background-color: #ddd;
 }
 
 /*  DROPDOWN MENU START */

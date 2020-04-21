@@ -9,9 +9,9 @@
 	<header>
 		<h1 class="titrePrincipale">Les meilleurs voitures de Rallye de Groupe B</h1>
       <nav>
-        <a href="index.php">Acceuil</a>
-        <a href="liste-voiture.php">Voiture</a>
-        <a href="membre.php">Membre</a>
+        <a class="menuPrincipale" href="index.php">Acceuil</a>
+        <a class="menuPrincipale" href="liste-voiture.php">Voiture</a>
+        <a style="float:right" class="menuPrincipale" href="membre.php">Membre</a>
       </nav> 
   </header>
   <section id="contenu">
