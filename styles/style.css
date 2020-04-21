@@ -6,7 +6,7 @@ h1, footer {background-color:#1f2833;color:#66fcf1;padding:1em;text-transform: u
 #contenu {padding:2em;}
 form {border:solid #1f2833 2px; background-color:#45a29e; padding:1em;}
 form > div {margin-top:1em;}
-form > div > label {display:block; font-weight:bold; color:#c5c6c7;}
+form > div > label {display:block; font-weight:bold; color:#d8d9da;}
 form input, form textarea, form select {width: 39em;}
 form input[type=submit] {margin-top:2em;}
 form textarea {height:5em;}
@@ -15,7 +15,7 @@ body{
     background: url(../images/backgroundDark.jpg);
     width: auto;
     height: auto;
-    color: #c5c6c7;
+    color: #d8d9da;
     font-family: Arial;
 }
 
@@ -28,6 +28,18 @@ footer{
 .image{
     width: 1000px;
     height: 720px;
+}
+
+#btnInscription{
+    text-decoration: none;
+    color: #d8d9da;
+    font-weight: bold;
+}
+
+.menu a{
+    text-decoration: none;
+    color: #d8d9da;
+    font-weight: bold;
 }
 
 /*  DROPDOWN MENU START */
