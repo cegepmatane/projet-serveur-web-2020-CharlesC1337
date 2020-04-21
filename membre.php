@@ -11,7 +11,7 @@ if(isset($_SESSION["pseudonyme"]))
 
 $membre = [];
 
-if(isset($_POST["action-connexion"])){
+if(!$estConnecte && isset($_POST["action-connexion"])){
     $membre = MembreDAO::ValiderConnexion($_POST);
 
     $estConnecte = isset($membre["id"]);
