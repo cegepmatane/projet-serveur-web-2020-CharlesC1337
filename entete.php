@@ -11,6 +11,7 @@
       <nav>
         <a class="menuPrincipale" href="index.php">Acceuil</a>
         <a class="menuPrincipale" href="liste-voiture.php">Voiture</a>
+        <a class="menuPrincipale" href="rss.php">RSS</a>
         <a style="float:right" class="menuPrincipale" href="membre.php">Membre</a>
       </nav> 
   </header>

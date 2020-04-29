@@ -42,19 +42,19 @@ nav{
     padding: 0;
     overflow: hidden;
     background-color: #333;
-    border: 1px solid #e7e7e7;
-    background-color: #f3f3f3;
+    border: 1px solid #1a1a1a;
+    background-color: #333;
 }
 
 .menuPrincipale{
     background-color: #45a29e;
     float: left;
     display: block;
-    color: #c5c6c7;
+    color: #1a1a1a;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    border-right: 1px solid #bbb;
+    border-right: 1px solid #1a1a1a;
 }
 
 .menuPrincipale:last-child {
@@ -62,13 +62,14 @@ nav{
 }
 
 .menuPrincipale:hover{
-    background-color: #ddd;
+    background-color: #333;
+    color: #ccc;
 }
 
 /*  DROPDOWN MENU START */
 .dropbtn {
     background-color: #45a29e;
-    color: #c5c6c7;
+    color: #1a1a1a;
     padding: 16px;
     font-size: 16px;
     border: none;
