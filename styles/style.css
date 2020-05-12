@@ -11,6 +11,39 @@ form input, form textarea, form select {width: 39em;}
 form input[type=submit] {margin-top:2em;}
 form textarea {height:5em;}
 
+.formRechercheRapide{
+   position: relative;
+   float: right;
+   background-color: transparent;
+   border:solid transparent 0px;
+}
+
+.formRechercheRapide > input[type=submit]{
+    width: 10em;
+    text-decoration: none;
+    background-color: transparent;
+    border:solid transparent 0px;
+    font-weight:bold; 
+    color:#d8d9da;
+    cursor: pointer;
+}
+
+.formRechercheRapide > input[type=text]{
+    width: 15em;
+}
+
+.lienResultatRecherche{
+    text-decoration: none;
+    color: #d8d9da;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.lienResultatRecherche:hover{
+    color: #333;
+}
+
 body{
     background: url(../images/backgroundDark.jpg);
     width: auto;
@@ -44,6 +77,7 @@ nav{
     background-color: #333;
     border: 1px solid #1a1a1a;
     background-color: #333;
+    margin-top: 1em;
 }
 
 .menuPrincipale{

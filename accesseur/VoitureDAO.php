@@ -67,5 +67,15 @@ class VoitureDAO{
 
     return $reussiteSupprimer;
   }
+
+  public static function lireRecherche($textRecherche){
+    $MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE = "SELECT id, marque, modele, annee, description FROM rallye WHERE marque LIKE '%$textRecherche%' OR modele LIKE '%$textRecherche%' OR annee LIKE '%$textRecherche%' OR description LIKE '%$textRecherche%';";
+
+    $requeteResultatRecherche = BaseDeDonnees::GetConnexion()->prepare($MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE);
+    $requeteResultatRecherche->execute();
+    $listResultatRecherche = $requeteResultatRecherche->fetchAll();
+
+    return $listResultatRecherche;
+  }
 }
 ?>
