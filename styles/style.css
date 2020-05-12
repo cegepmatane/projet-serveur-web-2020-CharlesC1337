@@ -7,6 +7,8 @@ h1, footer {background-color:#1f2833;color:#66fcf1;padding:1em;text-transform: u
 form {border:solid #1f2833 2px; background-color:#45a29e; padding:1em;}
 form > div {margin-top:1em;}
 form > div > label {display:block; font-weight:bold; color:#d8d9da;}
+form > div > p > label {display:block; font-weight:bold; color:#d8d9da;}
+form > div > p > input[type=checkbox] {display:block; font-weight:bold; color:#d8d9da; width: 5em; margin-left: 3em;}
 form input, form textarea, form select {width: 39em;}
 form input[type=submit] {margin-top:2em;}
 form textarea {height:5em;}

@@ -8,9 +8,9 @@ $filtresRecherche['recherche'] = FILTER_SANITIZE_ENCODED;
   
 $arrayRecherche = filter_input_array(INPUT_POST, $filtresRecherche);
 
-$textRecherhce = implode($arrayRecherche);
+$textRecherche = implode($arrayRecherche);
 
-$listResultatRecherche = VoitureDAO::lireRecherche($textRecherhce);
+$listResultatRecherche = VoitureDAO::lireRechercheRapide($textRecherche);
 ?>
 
 <?php include "entete.php"?>

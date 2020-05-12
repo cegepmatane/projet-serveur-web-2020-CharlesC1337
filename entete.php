@@ -21,6 +21,7 @@
       <a class="menuPrincipale" href="rss.php">RSS</a>
       <a class="menuPrincipale" href="test-excel.php">Excel</a>
       <a style="float:right" class="menuPrincipale" href="membre.php">Membre</a>
+      <a style="float:right" class="menuPrincipale" href="recherche-avance.php">Recherche Avancée</a>
     </nav> 
 
   </header>

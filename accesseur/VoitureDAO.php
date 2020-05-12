@@ -68,10 +68,46 @@ class VoitureDAO{
     return $reussiteSupprimer;
   }
 
-  public static function lireRecherche($textRecherche){
-    $MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE = "SELECT id, marque, modele, annee, description FROM rallye WHERE marque LIKE '%$textRecherche%' OR modele LIKE '%$textRecherche%' OR annee LIKE '%$textRecherche%' OR description LIKE '%$textRecherche%';";
+  public static function lireRechercheRapide($textRecherche){
+    if (empty($textRecherche))
+      $MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE = "SELECT id, marque, modele, annee, description FROM rallye WHERE marque LIKE '%null%' OR modele LIKE '%null%' OR annee LIKE '%null%' OR description LIKE '%null%';";
+    else
+      $MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE = "SELECT id, marque, modele, annee, description FROM rallye WHERE marque LIKE '%$textRecherche%' OR modele LIKE '%$textRecherche%' OR annee LIKE '%$textRecherche%' OR description LIKE '%$textRecherche%';";
 
     $requeteResultatRecherche = BaseDeDonnees::GetConnexion()->prepare($MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE);
+    $requeteResultatRecherche->execute();
+    $listResultatRecherche = $requeteResultatRecherche->fetchAll();
+
+    return $listResultatRecherche;
+  }
+  public static function lireRechercheAvance($marque, $modele, $anneeMin, $anneeMax, $conditionGroupe){
+
+    $conditions = array();
+    if(!empty($marque))
+    {
+        $conditions[ ] =  " marque LIKE '%$marque%' ";
+    }
+    if(!empty($modele))
+    {
+        $conditions[ ]  = " modele LIKE '%$modele%' ";
+    }
+    if(!empty($anneeMin) && !empty($anneeMax))
+    {
+        $conditions[ ]  = " annee BETWEEN '$anneeMin' AND '$anneeMax'";
+    }
+    if(!empty($conditionGroupe))
+    {
+        $conditions[ ]  = "$conditionGroupe";
+    }
+    if(!empty($conditions))
+    {
+      $sql = "SELECT id, marque, modele, annee, description FROM rallye WHERE ";
+      $sql = $sql . implode(' AND ', $conditions);
+    }
+    
+    $MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE_AVANCE = $sql;
+
+    $requeteResultatRecherche = BaseDeDonnees::GetConnexion()->prepare($MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE_AVANCE);
     $requeteResultatRecherche->execute();
     $listResultatRecherche = $requeteResultatRecherche->fetchAll();
 
