@@ -32,8 +32,7 @@ $reussiteAjout = MembreDAO::ajouterMembre($membre);
 <?php
 if($reussiteAjout) 
 {
-?>
-	Inscription Réussi!
-<?php	
+	header("Location: membre.php");
+    die();	
 }
 ?>
