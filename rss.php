@@ -3,9 +3,8 @@ require "configuration.php";
 require CHEMIN_ACCESSEUR . "VoitureDAO.php";
 
 $listVoiture = VoitureDAO::listerVoiture();
-//print_r($listVoiture);
 ?>
-<?xml version="1.0" encoding="UTF-8"?>
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
 <rss version="2.0"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
 	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
@@ -20,9 +19,9 @@ $listVoiture = VoitureDAO::listerVoiture();
         <atom:link href="http://localhost/journal/feed/" rel="self" type="application/rss+xml" />
         <link>http://localhost/ProjetListPhp/projet-serveur-web-2020-CharlesC1337/</link>
         <description>Les meilleurs Voiture de rally de Group B</description>
-        <lastBuildDate>Mon, 18 Mar 2019 14:27:41 +0000	</lastBuildDate>
+        <lastBuildDate>Mon, 18 Mar 2019 14:27:41 +0000</lastBuildDate>
         <language>fr-CA</language>
-        <sy:updatePeriod> hourly	</sy:updatePeriod>
+        <sy:updatePeriod> hourly</sy:updatePeriod>
         <sy:updateFrequency>1</sy:updateFrequency>
         <generator>Programmation manuelle</generator>
 

@@ -5,11 +5,7 @@
     require "configuration.php";
     require CHEMIN_ACCESSEUR . "VoitureDAO.php";
 
-    //print_r(CHEMIN_ACCESSEUR . "VoitureDAO.php");
-
     $listVoiture = VoitureDAO::listerVoiture();
-
-    //print_r($listVoiture);
 
     foreach($listVoiture as $voiture)
     {
@@ -18,5 +14,6 @@
 
     $tableur->writeToFile('voitures.xlsx');
 
-    include "index.php";
+    header("Location: liste-voiture.php");
+    die();
 ?> 

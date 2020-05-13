@@ -14,7 +14,7 @@ class VoitureDAO{
   }
 
   public static function listerVoiture(){
-    $MESSAGE_SQL_LISTE_VOITURE = "SELECT id, marque, modele, annee FROM rallye;";
+    $MESSAGE_SQL_LISTE_VOITURE = "SELECT id, marque, modele, annee, miniature FROM rallye;";
 
     $requeteListeVoitures = BaseDeDonnees::GetConnexion()->prepare($MESSAGE_SQL_LISTE_VOITURE);
     $requeteListeVoitures->execute();

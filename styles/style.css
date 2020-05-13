@@ -46,6 +46,13 @@ form textarea {height:5em;}
     color: #333;
 }
 
+.imgRSS{
+    height: 1.5%;
+    width: 1.5%;
+    float: right;
+    margin-left: 1em;
+}
+
 body{
     background: url(../images/backgroundDark.jpg);
     width: auto;
