@@ -80,6 +80,7 @@ class VoitureDAO{
 
     return $listResultatRecherche;
   }
+
   public static function lireRechercheAvance($marque, $modele, $anneeMin, $anneeMax, $conditionGroupe){
 
     $conditions = array();
@@ -112,6 +113,16 @@ class VoitureDAO{
     $listResultatRecherche = $requeteResultatRecherche->fetchAll();
 
     return $listResultatRecherche;
+  }
+
+  public static function voirStatistiqueContenuParGroupe(){
+    $MESSAGE_SQL_STATISTIQUE_CONTENU_PAR_GROUPE = "SELECT Groupe as groupe, count(*) as voiture, AVG(nombreProduit) as moyenneProduit, STDDEV_POP(nombreProduit) as ecartTypeNombreProduit, SUM(nombreProduit) as nombreProduitTotal, MIN(nombreProduit) as minNombreProduit, MAX(nombreProduit) as maxNombreProduit FROM rallye GROUP BY Groupe;";
+
+    $requeteStatistiquesContenu = BaseDeDonnees::GetConnexion()->prepare($MESSAGE_SQL_STATISTIQUE_CONTENU_PAR_GROUPE);
+    $requeteStatistiquesContenu->execute();
+    $statistiquesContenu = $requeteStatistiquesContenu->fetchAll();
+
+    return $statistiquesContenu;
   }
 }
 ?>

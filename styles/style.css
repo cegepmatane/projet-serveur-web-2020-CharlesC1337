@@ -53,6 +53,53 @@ form textarea {height:5em;}
     margin-left: 1em;
 }
 
+.lienPanneauAdministration{
+    text-decoration: none;
+    color: #d8d9da;
+    font-family: Arial;
+    font-weight: bold;
+    margin-left: 1em;
+}
+
+.lienPanneauAdministration:hover{
+    color: #333;
+}
+
+.boutonPanneauAdministration{
+    background-color: #45a29e;
+    color: #1a1a1a;
+    display: inline-block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-right: 1px solid #1a1a1a;
+    margin-left:0.5em;
+    margin-top: 1em;
+}
+
+.boutonPanneauAdministration:hover{
+    background-color: #333;
+    color: #ccc;
+}
+
+.recordPanneauAdministration{
+    border:solid 1px #45a29e; 
+    margin:0.5em;
+    padding:0.5em;
+}
+
+table{
+    border-collapse: collapse;
+    margin-top: 1em;
+    margin-left:0.5em; 
+}
+
+td{
+    border:solid 1px #45a29e;
+    padding: 0.5em;
+    text-align: center;
+}
+
 body{
     background: url(../images/backgroundDark.jpg);
     width: auto;

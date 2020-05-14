@@ -6,6 +6,7 @@ $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 $voiture = VoitureDAO::lireVoiture($id);
 
 include "entete.php";
+include "getVisiteurInfos.php";
 ?>
 
 <header><h2>Détails de la voiture</h2></header>

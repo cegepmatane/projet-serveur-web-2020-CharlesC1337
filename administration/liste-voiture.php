@@ -14,20 +14,25 @@ $listVoiture = VoitureDAO::listerVoiture();
 </head>
 </html>
 
-<a href="ajouter-voiture.html">Ajouter une Voiture</a>
+<h1 class="titrePrincipale">Panneau d'administration</h1>
+
+<a class="boutonPanneauAdministration" href="contenu.php">Contenu</a>
+<a class="boutonPanneauAdministration" href="visiteurs.php">Visiteurs</a>
+<br><br>
+<a class="lienPanneauAdministration" href="ajouter-voiture.html">Ajouter une Voiture</a>
 <?php 	
 	foreach($listVoiture as $voiture)
 	{
-		?>
-		<div class="voiture" style="border:solid 1px #45a29e; margin:5px; padding:5px;">
+?>
+		<div class="recordPanneauAdministration">
 			<?php echo $voiture['marque']; ?> <?php echo $voiture['modele']; ?>
-			<a href="modifier-voiture.php?voiture=<?php echo $voiture['id']; ?>" title="">
+			<a class="lienPanneauAdministration" style="float: right;" href="modifier-voiture.php?voiture=<?php echo $voiture['id']; ?>" title="">
 				Modifier
 			</a>
-			<a href="supprimer-voiture.php?voiture=<?php echo $voiture['id']; ?>" title="">
+			<a class="lienPanneauAdministration" style="float: right;" href="supprimer-voiture.php?voiture=<?php echo $voiture['id']; ?>" title="">
 				Supprimer
 			</a>
 		</div>		
-		<?php 		
+<?php 		
 	}
 ?>

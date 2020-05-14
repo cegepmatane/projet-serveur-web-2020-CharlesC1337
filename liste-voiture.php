@@ -5,6 +5,7 @@ require CHEMIN_ACCESSEUR . "VoitureDAO.php";
 $listVoiture = VoitureDAO::listerVoiture();
 
 include "entete.php";
+include "getVisiteurInfos.php";
 ?>	
 
 <a class="menuPrincipale" href="test-excel.php">Exportation vers un fichier Excel</a>

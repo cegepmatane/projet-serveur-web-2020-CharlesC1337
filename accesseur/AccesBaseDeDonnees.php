@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-class BaseDeDonnees{
+class AccesBaseDeDonnees{
     public static function getConnexion(){
         $usager = 'ProjetList';
         $motdepasse = 'HSJCBc9CFNQgovmx!';
