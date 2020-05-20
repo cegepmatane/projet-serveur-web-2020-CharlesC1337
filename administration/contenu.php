@@ -3,6 +3,9 @@ require "../configuration.php";
 require CHEMIN_ACCESSEUR . "VoitureDAO.php";
 
 $statistiqueContenu = VoitureDAO::voirStatistiqueContenuParGroupe();
+
+$nombreVoitureGroupeA = 0;
+$nombreVoitureGroupeB = 0;
 ?> 
 
 <!doctype html>
@@ -10,7 +13,8 @@ $statistiqueContenu = VoitureDAO::voirStatistiqueContenuParGroupe();
 <head>
 	<link rel="stylesheet" type="text/css" href="../styles/style.css">
 	<meta charset="utf-8">
-	<title>Panneau d'administration de Wiki Voiture Rallye Groupe B</title>
+    <title>Panneau d'administration de Wiki Voiture Rallye Groupe B</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </head>
 </html>
 
@@ -31,6 +35,11 @@ $statistiqueContenu = VoitureDAO::voirStatistiqueContenuParGroupe();
     <?php 	
         foreach($statistiqueContenu as $statistiques)
         {
+            if ($statistiques['groupe'] == "A")
+                $nombreVoitureGroupeA = $statistiques['voiture'];
+
+            if ($statistiques['groupe'] == "B")
+                $nombreVoitureGroupeB = $statistiques['voiture'];	
     ?>
     <tr>
         <td><?php echo $statistiques['groupe']; ?></td>
@@ -41,7 +50,33 @@ $statistiqueContenu = VoitureDAO::voirStatistiqueContenuParGroupe();
         <td><?php echo $statistiques['minNombreProduit']; ?></td>
         <td><?php echo $statistiques['maxNombreProduit']; ?></td>
     </tr>
-    <?php 		
+    <?php 
         }
     ?>
 </table>
+
+<div class="chart-container" style="position:relative; height:30vh; width:60vw; margin-top:0.5em; margin-left:7em;">
+      <canvas id="graphique" ></canvas>
+</div>
+
+<script>
+    var donnees = [<?php echo $nombreVoitureGroupeA; ?>, <?php echo $nombreVoitureGroupeB; ?>]; // Tableau des données
+    var etiquettes = ['Groupe A', 'Groupe B'];
+    var couleurs = ['rgba(255, 99, 132, 0.9)','rgba(54, 162, 235, 0.9)'];
+
+    var cible = document.getElementById('graphique');
+    var graphiqueTarte = new Chart(cible, {
+        type: 'pie',
+        data: {
+            labels: etiquettes,
+            datasets: [{
+                label: 'Contenu par Groupe',
+                data: donnees,
+                backgroundColor: couleurs
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+</script>
