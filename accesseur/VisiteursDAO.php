@@ -13,7 +13,7 @@ class VisiteursDAO{
 
   public static function voirStatistiqueVisiteursParJour(){
 
-    $SQL_VOIR_STATISTIQUE_VISITEUR_PAR_JOUR = "SELECT DAYOFWEEK(date) as Journee, date as Date, page as Page, user_ip as User_ip FROM visiteurs;";
+    $SQL_VOIR_STATISTIQUE_VISITEUR_PAR_JOUR = "SELECT DAYOFWEEK(date) as Journee, EXTRACT(DAY FROM date) as Jour, EXTRACT(MONTH FROM date) as Mois, EXTRACT(YEAR FROM date) as Annee, COUNT(id) as Clics, user_ip as User_ip FROM visiteurs GROUP BY Annee, Mois, Jour, User_ip ORDER BY Annee, Mois, Jour, Clics DESC;";
 
     $requeteStatistiquesVisiteurParJour = AccesBaseDeDonnees::GetConnexion()->prepare($SQL_VOIR_STATISTIQUE_VISITEUR_PAR_JOUR);
 
@@ -25,7 +25,7 @@ class VisiteursDAO{
 
   public static function voirStatistiqueVisiteursParLangue(){
 
-    $SQL_VOIR_STATISTIQUE_VISITEUR_PAR_LANGUE = "SELECT langue as Langue, page as Page, user_ip as User_ip FROM visiteurs;";
+    $SQL_VOIR_STATISTIQUE_VISITEUR_PAR_LANGUE = "SELECT langue as Langue, COUNT(id) as Clics, user_ip as User_ip FROM visiteurs GROUP BY User_ip ORDER BY Clics DESC;";
 
     $requeteStatistiquesVisiteurParLangue = AccesBaseDeDonnees::GetConnexion()->prepare($SQL_VOIR_STATISTIQUE_VISITEUR_PAR_LANGUE);
 

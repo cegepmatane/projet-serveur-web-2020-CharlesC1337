@@ -18,9 +18,9 @@ $nombreVoitureGroupeB = 0;
 </head>
 </html>
 
-<h1 class="titrePrincipale">Page Contenu</h1>
+<h1 class="titrePrincipale">Statistiques du Contenu</h1>
 
-<a class="boutonPanneauAdministration" href="liste-voiture.php">Panneau d'administration</a>
+<a class="boutonPanneauAdministration" href="index.php">Panneau d'administration</a>
 
 <table class="tableauContenu">
     <tr>
@@ -62,7 +62,7 @@ $nombreVoitureGroupeB = 0;
 <script>
     var donnees = [<?php echo $nombreVoitureGroupeA; ?>, <?php echo $nombreVoitureGroupeB; ?>]; // Tableau des données
     var etiquettes = ['Groupe A', 'Groupe B'];
-    var couleurs = ['rgba(255, 99, 132, 0.9)','rgba(54, 162, 235, 0.9)'];
+    var couleurs = ['#66fcf1', '#45a29e'];
 
     var cible = document.getElementById('graphique');
     var graphiqueTarte = new Chart(cible, {

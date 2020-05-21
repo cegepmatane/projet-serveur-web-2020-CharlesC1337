@@ -24,14 +24,17 @@ $nbreJourSamedi = 0;
 </head>
 </html>
 
-<h1 class="titrePrincipale">Page Visiteurs</h1>
+<h1 class="titrePrincipale">Statistiques des Visiteurs</h1>
 
-<a class="boutonPanneauAdministration" href="liste-voiture.php">Panneau d'administration</a>
+<a class="boutonPanneauAdministration" href="index.php">Panneau d'administration</a>
 
-<table class="tableauContenuVisiteurJournee">
+<br>
+<br>
+
+<table class="tableauContenuVisiteur" style="">
     <tr>
         <td>Journée</td>
-        <td>Page Cliquer</td>
+        <td>Nombre de Clics</td>
         <td>Ip de l'utilisateur</td>
     </tr>
     <?php 	
@@ -70,8 +73,8 @@ $nbreJourSamedi = 0;
             }
     ?>
     <tr>
-        <td><?php echo $jour, " le ", $statistiques['Date'];?></td>
-        <td><?php echo $statistiques['Page']; ?></td>
+        <td><?php echo $jour, " le ", $statistiques['Annee'], "-", $statistiques['Mois'], "-", $statistiques['Jour']?></td>
+        <td><?php echo $statistiques['Clics']; ?></td>
         <td><?php echo $statistiques['User_ip']; ?></td>
     </tr>
     <?php 		
@@ -79,10 +82,10 @@ $nbreJourSamedi = 0;
     ?>
 </table>
 
-<table class="tableauContenuVisiteurLangue">
+<table class="tableauContenuVisiteur">
     <tr>
         <td>Langue</td>
-        <td>Page Cliquer</td>
+        <td>Nombre de Clics</td>
         <td>Ip de l'utilisateur</td>
     </tr>
     <?php 	
@@ -91,7 +94,7 @@ $nbreJourSamedi = 0;
     ?>
     <tr>
         <td><?php echo $statistique['Langue']; ?></td>
-        <td><?php echo $statistique['Page']; ?></td>
+        <td><?php echo $statistique['Clics']; ?></td>
         <td><?php echo $statistique['User_ip']; ?></td>
     </tr>
     <?php 		
@@ -99,8 +102,8 @@ $nbreJourSamedi = 0;
     ?>
 </table>
 
-<div class="chart-container" style="position: relative; height:30vh; width:60vw; margin-top:0.5em; margin-left:22.5em;">
-      <canvas id="graphique" ></canvas>
+<div class="chart-container" style="position: relative; height:30vh; width:60vw; margin-top:1em;">
+      <canvas id="graphique"></canvas>
 </div>
 
 <script>
@@ -115,8 +118,8 @@ $nbreJourSamedi = 0;
             labels: etiquettes,
             datasets: [{
                 label: 'Visite selon les Jours',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
+                backgroundColor: '#45a29e',
+                borderColor: '#66fcf1',
                 data: donnees
             }]
         },

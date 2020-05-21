@@ -14,10 +14,9 @@ $listVoiture = VoitureDAO::listerVoiture();
 </head>
 </html>
 
-<h1 class="titrePrincipale">Panneau d'administration</h1>
+<h1 class="titrePrincipale">Gestion des Voitures</h1>
 
-<a class="boutonPanneauAdministration" href="contenu.php">Contenu</a>
-<a class="boutonPanneauAdministration" href="visiteurs.php">Visiteurs</a>
+<a class="boutonPanneauAdministration" href="index.php">Panneau d'administration</a>
 <br><br>
 <a class="lienPanneauAdministration" href="ajouter-voiture.html">Ajouter une Voiture</a>
 <?php 	
