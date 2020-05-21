@@ -1,7 +1,7 @@
 <?php
     require_once 'lib/simpleimage/SimpleImage.php';       
     $image = new SimpleImage();
-    $image->load('images/mgmetro.jpg');
+    $image->load('images/subaruWRC97.jpg');
     $image->resizeToWidth(100);
-    $image->save('mini/mgmetro.jpg');
+    $image->save('mini/subaruWRC97.jpg');
 ?> 

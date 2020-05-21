@@ -59,7 +59,6 @@ $dateTime = date('Y/m/d G:i');
 			Statistiques du Contenu
 		</p>
 		<br>
-		<br>
 		<iframe src="contenu.php" name="iframeContenu" onload="window.frames['iframeContenu'].scrollTo(0,600)" scrolling="no" class="iframeVignettePanneauAdministration"></iframe>
 	</div>
 </a>

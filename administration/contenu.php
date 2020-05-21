@@ -2,7 +2,11 @@
 require "../configuration.php";
 require CHEMIN_ACCESSEUR . "VoitureDAO.php";
 
-$statistiqueContenu = VoitureDAO::voirStatistiqueContenuParGroupe();
+$statistiqueContenuParGroupe = VoitureDAO::voirStatistiqueContenuParGroupe();
+
+$statistiqueContenu = VoitureDAO::voirStatistiqueContenu();
+
+$listVoiture = VoitureDAO::listerVoiture();
 
 $nombreVoitureGroupeA = 0;
 $nombreVoitureGroupeB = 0;
@@ -33,7 +37,7 @@ $nombreVoitureGroupeB = 0;
         <td>Maximum Nombre de Produit</td>
     </tr>
     <?php 	
-        foreach($statistiqueContenu as $statistiques)
+        foreach($statistiqueContenuParGroupe as $statistiques)
         {
             if ($statistiques['groupe'] == "A")
                 $nombreVoitureGroupeA = $statistiques['voiture'];
@@ -49,6 +53,42 @@ $nombreVoitureGroupeB = 0;
         <td><?php echo $statistiques['nombreProduitTotal']; ?></td>
         <td><?php echo $statistiques['minNombreProduit']; ?></td>
         <td><?php echo $statistiques['maxNombreProduit']; ?></td>
+    </tr>
+    <?php 
+        }
+    ?>
+</table>
+
+<table class="tableauContenu">
+    <tr>
+        <td>Moyenne Total Nombre de Produit</td>
+        <td>Moyenne Total Nombre de Produit sans Extremum</td>
+    </tr>
+    <?php 	
+        $min = 1000000000;
+        $max = 0;
+        $somme = 0;
+
+        foreach($listVoiture as $voiture)
+        {
+            $somme += $voiture['nombreProduit'];
+
+            if($voiture['nombreProduit'] > $max) 
+                $max = $voiture['nombreProduit'];
+
+            if($voiture['nombreProduit'] < $min) 
+                $min = $voiture['nombreProduit'];
+        }
+
+        $moyenneSansExtremum = ($somme - $min - $max) / (count($listVoiture) - 2);
+
+        foreach($statistiqueContenu as $statistiques)
+        {
+
+    ?>
+    <tr>
+        <td><?php echo $statistiques['moyenneProduit']; ?></td>
+        <td><?php echo $moyenneSansExtremum; ?></td>
     </tr>
     <?php 
         }

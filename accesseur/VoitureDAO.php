@@ -14,7 +14,7 @@ class VoitureDAO{
   }
 
   public static function listerVoiture(){
-    $MESSAGE_SQL_LISTE_VOITURE = "SELECT id, marque, modele, annee, miniature FROM rallye;";
+    $MESSAGE_SQL_LISTE_VOITURE = "SELECT id, marque, modele, annee, nombreProduit, miniature FROM rallye;";
 
     $requeteListeVoitures = BaseDeDonnees::GetConnexion()->prepare($MESSAGE_SQL_LISTE_VOITURE);
     $requeteListeVoitures->execute();
@@ -118,7 +118,17 @@ class VoitureDAO{
   public static function voirStatistiqueContenuParGroupe(){
     $MESSAGE_SQL_STATISTIQUE_CONTENU_PAR_GROUPE = "SELECT Groupe as groupe, count(*) as voiture, AVG(nombreProduit) as moyenneProduit, STDDEV_POP(nombreProduit) as ecartTypeNombreProduit, SUM(nombreProduit) as nombreProduitTotal, MIN(nombreProduit) as minNombreProduit, MAX(nombreProduit) as maxNombreProduit FROM rallye GROUP BY Groupe;";
 
-    $requeteStatistiquesContenu = BaseDeDonnees::GetConnexion()->prepare($MESSAGE_SQL_STATISTIQUE_CONTENU_PAR_GROUPE);
+    $requeteStatistiquesContenuParGroupe = BaseDeDonnees::GetConnexion()->prepare($MESSAGE_SQL_STATISTIQUE_CONTENU_PAR_GROUPE);
+    $requeteStatistiquesContenuParGroupe->execute();
+    $statistiquesContenuParGroupe = $requeteStatistiquesContenuParGroupe->fetchAll();
+
+    return $statistiquesContenuParGroupe;
+  }
+
+  public static function voirStatistiqueContenu(){
+    $MESSAGE_SQL_STATISTIQUE_CONTENU = "SELECT count(*) as voiture, AVG(nombreProduit) as moyenneProduit, STDDEV_POP(nombreProduit) as ecartTypeNombreProduit, SUM(nombreProduit) as nombreProduitTotal, MIN(nombreProduit) as minNombreProduit, MAX(nombreProduit) as maxNombreProduit FROM rallye;";
+
+    $requeteStatistiquesContenu = BaseDeDonnees::GetConnexion()->prepare($MESSAGE_SQL_STATISTIQUE_CONTENU);
     $requeteStatistiquesContenu->execute();
     $statistiquesContenu = $requeteStatistiquesContenu->fetchAll();
 
