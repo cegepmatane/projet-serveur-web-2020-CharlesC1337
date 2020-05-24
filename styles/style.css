@@ -73,7 +73,6 @@ form textarea {height:5em;}
     padding: 14px 16px;
     text-decoration: none;
     border-right: 1px solid #1a1a1a;
-    margin-left:0.5em;
     margin-top: 1em;
     border-radius: 1px;
 }
@@ -85,13 +84,15 @@ form textarea {height:5em;}
 
 .recordPanneauAdministration{
     border:solid 1px #45a29e; 
-    margin:0.5em;
+    margin-top:0.5em;
     padding:0.5em;
+    width: 97.2%;
 }
 
 .tableauContenuVisiteur{
     position:relative; 
     display: inline;
+    margin-right: 1em;
 }
 
 .vignettePanneauAdministration{
@@ -99,10 +100,7 @@ form textarea {height:5em;}
     border:solid #66fcf1 1px;
     border-radius: 1px;
     width: 30%;
-    height: 20em;
-    margin: 1em;
-    margin-left: 2.2em;
-    margin-top: 1.5em;  
+    height: 20em; 
     position: fixed;
 }
 
@@ -125,7 +123,6 @@ form textarea {height:5em;}
 table{
     border-collapse: collapse;
     margin-top: 1em;
-    margin-left:0.5em; 
 }
 
 td{
