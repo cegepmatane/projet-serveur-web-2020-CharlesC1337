@@ -1,5 +1,6 @@
 * {margin:0;padding:0;}
 * {font-family:Arial;}
+
 body > header, body > section {padding:2em;}
 h2 {color:#66fcf1; text-transform: uppercase;}
 h1, footer {background-color:#1f2833;color:#66fcf1;padding:1em;text-transform: uppercase; border-radius: 2px;}
@@ -100,8 +101,9 @@ form textarea {height:5em;}
     border:solid #66fcf1 1px;
     border-radius: 1px;
     width: 30%;
-    height: 20em; 
+    height: 35%; 
     position: fixed;
+    overflow: hidden;
 }
 
 .texteVignettePanneauAdministration{
@@ -115,7 +117,7 @@ form textarea {height:5em;}
 
 .iframeVignettePanneauAdministration{
     width:30%; 
-    height:11em; 
+    height:18%; 
     border:none;
     position: fixed;
 }
@@ -133,7 +135,7 @@ td{
 
 body{
     background: url(../images/backgroundDark.jpg);
-    width: auto;
+    width: 100%;
     height: auto;
     color: #d8d9da;
     font-family: Arial;
