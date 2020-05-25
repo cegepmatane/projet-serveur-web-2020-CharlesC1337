@@ -51,7 +51,7 @@ $dateTime = date('Y/m/d G:i');
 				<p class="texteVignettePanneauAdministration">
 					Statistiques des Visiteurs
 				</p>
-				<iframe src="visiteurs.php" style="width:25%; height:22%; margin-left:2.5em;" name="iframeVisiteurs" onload="window.frames['iframeVisiteurs'].scrollTo(0,250)" scrolling="no" class="iframeVignettePanneauAdministration"></iframe>
+				<iframe src="visiteurs.php" style="width:25%; height:22.6%; margin-left:2.5em;" name="iframeVisiteurs" onload="window.frames['iframeVisiteurs'].scrollTo(0,250)" scrolling="no" class="iframeVignettePanneauAdministration"></iframe>
 			</div>
 		</a>
 
