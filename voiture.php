@@ -12,13 +12,16 @@ include "getVisiteurInfos.php";
 <header><h2>Détails de la voiture</h2></header>
 <br>
 <div class="voiture">
+	<img class="image" src="images/<?= $voiture["image"]; ?>" alt=""/>
+	<br>
 	<h3 class="marqueModele"><?= $voiture["marque"]; ?> <?= $voiture["modele"]; ?></h3>
 	<br>
 	<p class="annee">Année de sortie : <?= $voiture["annee"]; ?></p>
 	<br>
-	<p class="description"><?= $voiture["description"]; ?></p>
+	<p class="groupe">Groupe : <?= $voiture["groupe"]; ?></p>
 	<br>
-	<img class="image" src="images/<?= $voiture["image"]; ?>" alt=""/>
+	<p class="description"><?= $voiture["description"]; ?></p>
+	<p style="padding-bottom: 15rem;"></p>
 </div>
 
 <?php include "pied-page.php"?>

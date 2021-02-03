@@ -16,22 +16,29 @@ $listResultatRecherche = VoitureDAO::lireRechercheRapide($textRecherche);
 <?php include "entete.php"?>
 <header><h2>Résultat de la recherche</h2></header>
 
+ <div class="resultatRechercheContenant">
+    <ul class="resultatRecherche">
+
     <?php
         foreach($listResultatRecherche as $resultat)
         {
     ?>
-
-    <br>
-    <a class="lienResultatRecherche" href="voiture.php?id=<?= $resultat["id"];?>">
-        <?= $resultat["marque"]; ?> <?= $resultat["modele"]; ?>
-    </a>
-    <br>
-
-    <p><?=$resultat["description"];?></p>
+        
+        <a class="lienResultatRecherche" href="voiture.php?id=<?= $resultat["id"];?>">
+            <li class="voitureResultatRecherche">
+                <img src="images/<?= $resultat["image"]; ?>" alt="Miniature" class="imageResultatRecherche"></img>
+                <h3><?= $resultat["marque"]; ?> <?= $resultat["modele"]; ?></h3>
+                <br>
+                <p class="descriptionResultatRecherche"><?= $resultat["description"]; ?></p>
+            </li>
+        </a>
 
     <?php
         }
     ?>
+        
+    </ul>
+</div>
 
     <?php
         if(empty($resultat))

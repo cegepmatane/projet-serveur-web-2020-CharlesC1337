@@ -97,6 +97,8 @@ $nombreVoitureGroupeB = 0;
                 }
             ?>
         </table>
+        
+        <br><br>
 
         <div class="chart-container" style="position:relative; height:30vh; width:60vw; margin-top:0.5em; margin-left:7em;">
             <canvas id="graphique" ></canvas>

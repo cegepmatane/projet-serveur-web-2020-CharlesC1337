@@ -10,23 +10,29 @@ include "getVisiteurInfos.php";
 
 <a class="menuPrincipale" href="test-excel.php">Exportation vers un fichier Excel</a>
 
-<br><br><br>
+<br><br><br><br>
 
-<div class="dropdown">
-	<button class="dropbtn">Liste des Voitures</button>
-	<div class="dropdown-content">
-		<?php
-			foreach($listVoiture as $voiture)
-			{
-		?>
-			<a href="voiture.php?id=<?= $voiture["id"];?>">
-				<?= $voiture["marque"]; ?> <?= $voiture["modele"]; ?>
-				<img src="<?= $voiture["miniature"]; ?>" alt="Miniature"></img>
-			</a>
-		<?php
-			}
-		?>
-	</div>
+<div class="listeVoitureContenant">
+    <ul class="listeVoiture">
+
+<?php
+    foreach($listVoiture as $voiture)
+    {
+?>
+        <a class="lienListeVoiture" href="voiture.php?id=<?= $voiture["id"];?>">
+            <li class="voitureListeVoiture">
+                <img src="images/<?= $voiture["image"]; ?>" alt="Miniature" class="imageListeVoiture"></img>
+                <h3><?= $voiture["marque"]; ?> <?= $voiture["modele"]; ?></h3>
+                <br>
+                <p class="descriptionListeVoiture"><?= $voiture["description"]; ?></p>
+            </li>
+        </a>
+
+<?php
+    }
+?>
+
+    </ul>
 </div>
 
 <?php include "pied-page.php"?>

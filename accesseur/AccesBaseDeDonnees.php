@@ -4,8 +4,8 @@ ini_set('display_errors', 1);
 
 class AccesBaseDeDonnees{
     public static function getConnexion(){
-        $usager = 'ProjetList';
-        $motdepasse = 'HSJCBc9CFNQgovmx!';
+        $usager = 'WikiRallye';
+        $motdepasse = 'WikiRallye12!';
         $hote = 'localhost';
         $base = 'voiture';
 

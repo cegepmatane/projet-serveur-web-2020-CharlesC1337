@@ -1,11 +1,14 @@
+/*  CSS Reset   */
 * {margin:0;padding:0;}
 * {font-family:Arial;}
+
+/*  Formulaires Général début   */
 
 body > header, body > section {padding:2em;}
 h2 {color:#66fcf1; text-transform: uppercase;}
 h1, footer {background-color:#1f2833;color:#66fcf1;padding:1em;text-transform: uppercase; border-radius: 2px;}
 #contenu {padding:2em;}
-form {border:solid #1f2833 2px; background-color:#45a29e; padding:1em;}
+form {border:solid #1f2833 2px; background-color:rgba(69, 161, 156, 0.65); padding:1em;}
 form > div {margin-top:1em;}
 form > div > label {display:block; font-weight:bold; color:#d8d9da;}
 form > div > p > label {display:block; font-weight:bold; color:#d8d9da;}
@@ -13,6 +16,95 @@ form > div > p > input[type=checkbox] {display:block; font-weight:bold; color:#d
 form input, form textarea, form select {width: 39em;}
 form input[type=submit] {margin-top:2em;}
 form textarea {height:5em;}
+
+/*  Formulaires Général fin   */
+
+/*  Géréral début   */
+
+table{
+    border-collapse: collapse;
+    margin-top: 1em;
+}
+
+td{
+    border:solid 1px #45a29e;
+    padding: 0.5em;
+    text-align: center;
+}
+
+body{
+    background: url(../images/backgroundDark.jpg);
+    width: 100%;
+    height: auto;
+    color: #d8d9da;
+    font-family: Arial;
+}
+
+footer{
+    font-weight: bold;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+nav{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    border: 1px solid #1a1a1a;
+    background-color: #333;
+    margin-top: 1em;
+}
+
+.imgRSS{
+    height: 1.5%;
+    width: 1.5%;
+    float: right;
+    margin-left: 1em;
+}
+
+.image{
+    width: 30rem;
+    height: 22.5rem;
+	float:left;
+	margin: 0 1rem 0 0;
+}
+
+#btnInscription{
+    text-decoration: none;
+    color: #d8d9da;
+    font-weight: bold;
+}
+
+/*  Géréral fin   */
+
+/*  Menu Principale début   */
+
+.menuPrincipale{
+    background-color: #45a29e;
+    float: left;
+    display: block;
+    color: #1a1a1a;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-right: 1px solid #1a1a1a;
+    border-radius: 1px;
+}
+
+.menuPrincipale:last-child {
+    border-right: none;
+}
+
+.menuPrincipale:hover{
+    background-color: #333;
+    color: #ccc;
+}
+
+/*  Menu Principale fin   */
+
+/*  Recherche début   */
 
 .formRechercheRapide{
    position: relative;
@@ -39,20 +131,46 @@ form textarea {height:5em;}
     text-decoration: none;
     color: #d8d9da;
     font-family: Arial;
-    font-weight: bold;
     font-size: 20px;
 }
 
 .lienResultatRecherche:hover{
-    color: #333;
+    color: #d8d9da;
 }
 
-.imgRSS{
-    height: 1.5%;
-    width: 1.5%;
-    float: right;
-    margin-left: 1em;
+.imageResultatRecherche{
+	height: 10rem;
+	width: 10rem;
+	float:left;
+	margin: 0 1rem 0 0;
 }
+
+.resultatRecherche{
+	list-style-type:none;
+	width:100%;
+}
+
+.voitureResultatRecherche{
+	padding:1rem;
+	border:solid 1px #45a29e; 
+	overflow:auto;
+	margin-top:1rem;
+}
+
+.voitureResultatRecherche:hover{
+	cursor:pointer;
+	background:#333;
+}
+
+.descriptionResultatRecherche{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/*  Recherche fin   */
+
+/*  Panneau Admin début   */
 
 .lienPanneauAdministration{
     text-decoration: none;
@@ -96,8 +214,9 @@ form textarea {height:5em;}
     margin-right: 1em;
 }
 
+/*
 .vignettePanneauAdministration{
-    /*background-color: rgb(26, 26, 26, 0.5);*/
+    //background-color: rgb(26, 26, 26, 0.5);
     border:solid #66fcf1 1px;
     border-radius: 1px;
     width: 30%;
@@ -105,6 +224,7 @@ form textarea {height:5em;}
     position: fixed;
     overflow: hidden;
 }
+*/
 
 .texteVignettePanneauAdministration{
     font-family:Arial;
@@ -115,80 +235,79 @@ form textarea {height:5em;}
     text-align: center;
 }
 
+/*
 .iframeVignettePanneauAdministration{
     width:30%; 
     height:18%; 
     border:none;
     position: fixed;
 }
+*/
 
-table{
-    border-collapse: collapse;
-    margin-top: 1em;
+.grillePanneauAdmin {
+	display: grid;
+	grid-template-columns: auto auto auto auto;
+	grid-gap: 1rem;
+	grid-auto-rows: 1fr;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
-td{
-    border:solid 1px #45a29e;
-    padding: 0.5em;
-    text-align: center;
+.grillePanneauAdmin > a > div {
+	text-align: center;
+	padding: 1rem 0;
+	border:solid 1px #45a29e; 
 }
 
-body{
-    background: url(../images/backgroundDark.jpg);
-    width: 100%;
-    height: auto;
+.grillePanneauAdmin > div {
+	text-align: center;
+	padding: 1rem 0;
+	border:solid 1px #45a29e; 
+}
+
+/*  Panneau Admin fin   */
+
+/*  Liste Voiture début   */
+
+.imageListeVoiture{
+	height: 10rem;
+	width: 10rem;
+	float:left;
+	margin: 0 1rem 0 0;
+}
+
+.listeVoiture{
+	list-style-type:none;
+	width:100%;
+}
+
+.voitureListeVoiture{
+	padding:1rem;
+	border:solid 1px #45a29e; 
+	overflow:auto;
+	margin-top:1rem;
+}
+
+.voitureListeVoiture:hover{
+	cursor:pointer;
+	background:#333;
+}
+
+.lienListeVoiture{
+    text-decoration: none;
     color: #d8d9da;
     font-family: Arial;
+    font-size: 20px;
 }
 
-footer{
-    font-weight: bold;
-    margin-left: 2em;
-    margin-right: 2em;
+.descriptionListeVoiture{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
-.image{
-    width: 1000px;
-    height: 720px;
-}
-
-#btnInscription{
-    text-decoration: none;
-    color: #d8d9da;
-    font-weight: bold;
-}
-
-nav{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-    border: 1px solid #1a1a1a;
-    background-color: #333;
-    margin-top: 1em;
-}
-
-.menuPrincipale{
-    background-color: #45a29e;
-    float: left;
-    display: block;
-    color: #1a1a1a;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    border-right: 1px solid #1a1a1a;
-    border-radius: 1px;
-}
-
-.menuPrincipale:last-child {
-    border-right: none;
-}
-
-.menuPrincipale:hover{
-    background-color: #333;
-    color: #ccc;
-}
+/*  Liste Voiture fin   */
 
 /*  DROPDOWN MENU START */
 .dropbtn {

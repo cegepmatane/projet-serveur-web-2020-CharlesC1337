@@ -14,7 +14,7 @@ class VoitureDAO{
   }
 
   public static function listerVoiture(){
-    $MESSAGE_SQL_LISTE_VOITURE = "SELECT id, marque, modele, annee, nombreProduit, miniature FROM rallye;";
+    $MESSAGE_SQL_LISTE_VOITURE = "SELECT id, marque, modele, annee, description, nombreProduit, image, miniature FROM rallye;";
 
     $requeteListeVoitures = BaseDeDonnees::GetConnexion()->prepare($MESSAGE_SQL_LISTE_VOITURE);
     $requeteListeVoitures->execute();
@@ -70,9 +70,9 @@ class VoitureDAO{
 
   public static function lireRechercheRapide($textRecherche){
     if (empty($textRecherche))
-      $MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE = "SELECT id, marque, modele, annee, description FROM rallye WHERE marque LIKE '%null%' OR modele LIKE '%null%' OR annee LIKE '%null%' OR description LIKE '%null%';";
+      $MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE = "SELECT id, marque, modele, annee, description, image FROM rallye WHERE marque LIKE '%null%' OR modele LIKE '%null%' OR annee LIKE '%null%' OR description LIKE '%null%';";
     else
-      $MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE = "SELECT id, marque, modele, annee, description FROM rallye WHERE marque LIKE '%$textRecherche%' OR modele LIKE '%$textRecherche%' OR annee LIKE '%$textRecherche%' OR description LIKE '%$textRecherche%';";
+      $MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE = "SELECT id, marque, modele, annee, description, image FROM rallye WHERE marque LIKE '%$textRecherche%' OR modele LIKE '%$textRecherche%' OR annee LIKE '%$textRecherche%' OR description LIKE '%$textRecherche%';";
 
     $requeteResultatRecherche = BaseDeDonnees::GetConnexion()->prepare($MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE);
     $requeteResultatRecherche->execute();
@@ -102,7 +102,7 @@ class VoitureDAO{
     }
     if(!empty($conditions))
     {
-      $sql = "SELECT id, marque, modele, annee, description FROM rallye WHERE ";
+      $sql = "SELECT id, marque, modele, annee, description, image FROM rallye WHERE ";
       $sql = $sql . implode(' AND ', $conditions);
     }
     

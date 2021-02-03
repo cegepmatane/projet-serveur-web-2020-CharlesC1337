@@ -2,8 +2,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$usager = 'ProjetList';
-$motdepasse = 'HSJCBc9CFNQgovmx!';
+$usager = 'WikiRallye';
+$motdepasse = 'WikiRallye12!';
 $hote = 'localhost';
 $base = 'voiture';
 
