@@ -8,7 +8,7 @@ include "entete.php";
 include "getVisiteurInfos.php";
 ?>	
 
-<a class="menuPrincipale" href="test-excel.php">Exportation vers un fichier Excel</a>
+<a class="boutonThemeMenu" href="test-excel.php" download="voitures.xlsx">Exportation vers un fichier Excel</a>
 
 <br><br><br><br>
 
@@ -34,5 +34,7 @@ include "getVisiteurInfos.php";
 
     </ul>
 </div>
+
+<br><br>
 
 <?php include "pied-page.php"?>

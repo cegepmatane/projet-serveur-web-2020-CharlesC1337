@@ -85,16 +85,18 @@ $listResultatRecherche = VoitureDAO::lireRechercheAvance($textMarque, $textModel
     </ul>
 </div>
 
-    <?php
-        if(empty($resultat))
-        {
-    ?>
+<br><br>
 
-    <br>
-    <p>Aucun résultat!</p>
+<?php
+    if(empty($resultat))
+    {
+?>
 
-    <?php
-        }
-    ?>
+<br>
+<p>Aucun résultat!</p>
+
+<?php
+    }
+?>
         
 <?php include "pied-page.php"?> 

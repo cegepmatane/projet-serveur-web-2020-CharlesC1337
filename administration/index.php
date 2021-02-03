@@ -26,14 +26,14 @@ $dateTime = date('Y/m/d G:i');
         
         <div class="grillePanneauAdmin">
 
-            <a href="liste-voiture.php" style="text-decoration: none;">
+            <a class="lienGrillePanneauAdministration" href="liste-voiture.php">
                 <div style="grid-area: 1 / 1 / 2 / 2;">
                     <br>
                     <p class="texteVignettePanneauAdministration">
                         Gestion des Voitures
                     </p>
                     <br>
-                    <img src="../images/gestion_voiture.png" alt="Gestion des Voitures" style="width:100%; height:13rem;">
+                    <img src="../images/gestion_voiture2.png" alt="Gestion des Voitures" style="width:100%; height:13rem;">
                 </div>
             </a>
 
@@ -49,7 +49,7 @@ $dateTime = date('Y/m/d G:i');
                 </div>
             </div>
 
-            <a href="visiteurs.php" style="text-decoration: none;">
+            <a class="lienGrillePanneauAdministration" href="visiteurs.php">
                 <div style="grid-area: 1 / 3 / 2 / 4;">
                     <br>
                     <p class="texteVignettePanneauAdministration">
@@ -60,7 +60,7 @@ $dateTime = date('Y/m/d G:i');
                 </div>
             </a>
 
-            <a href="contenu.php" style="text-decoration: none;">
+            <a class="lienGrillePanneauAdministration" href="contenu.php">
                 <div style="grid-area: 2 / 1 / 3 / 2;">
                     <br>
                     <p class="texteVignettePanneauAdministration">
@@ -105,14 +105,14 @@ $dateTime = date('Y/m/d G:i');
                 </p>
             </div>
 
-            <a href="visiteurs.php" style="text-decoration: none; color:#d8d9da;">
+            <a class="lienGrillePanneauAdministration" href="visiteurs.php">
                 <div style="grid-area: 2 / 3 / 3 / 4;">
                     <br>
                     <p class="texteVignettePanneauAdministration">
                         Statistiques des Visiteurs
                     </p>
                     <br>
-                    <table class="tableauContenuVisiteur" style="margin-left:1em;">
+                    <table class="tableauContenuVisiteur">
                         <tr>
                             <td>Langue</td>
                             <td>Nombre de Clics</td>
