@@ -2,7 +2,7 @@
 require "../configuration.php";
 require CHEMIN_ACCESSEUR . "VoitureDAO.php";
 
-$repertoireImage = $_SERVER['DOCUMENT_ROOT'] . "/ProjetListPhp/projet-serveur-web-2020-CharlesC1337/images/";
+$repertoireImage = $_SERVER['DOCUMENT_ROOT'] . "/projet-serveur-web-2020-CharlesC1337/images/";
 
 $fichierDestination = $repertoireImage . $_FILES['image']['name'];
 

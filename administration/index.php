@@ -124,7 +124,7 @@ $dateTime = date('Y/m/d G:i');
                             foreach($statistiqueVisiteursParLangue as $statistique)
                             {
                                 $nbreRecord++;
-                                if ($nbreRecord >= 6)
+                                if ($nbreRecord >= 4)
                                     return;
                         ?>
                         <tr>
