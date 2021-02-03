@@ -9,6 +9,7 @@ h2 {color:#66fcf1; text-transform: uppercase;}
 h1, footer {background-color:#1f2833;color:#66fcf1;padding:1em;text-transform: uppercase; border-radius: 2px;}
 #contenu {padding:2em;}
 form {border:solid #1f2833 2px; background-color:rgba(69, 161, 156, 0.65); padding:1em}
+form:not(.formRechercheRapide) {border:solid #45a29e 2px; background-color:rgba(69, 161, 156, 0.25); padding:1em; width:28.5%; margin-top:1rem;}
 form > div {margin-top:1em;}
 form > div > label {display:block; font-weight:bold; color:#d8d9da;}
 form > div > p > label {display:block; font-weight:bold; color:#d8d9da;}
@@ -135,7 +136,7 @@ nav{
 }
 
 .formRechercheRapide > input[type=submit]{
-    width: 10em;
+    width: 9rem;
     text-decoration: none;
     background-color: transparent;
     border:solid transparent 0px;
@@ -149,7 +150,7 @@ nav{
 }
 
 .formRechercheRapide > input[type=text]{
-    width: 15em;
+    width: 13rem;
 }
 
 .lienResultatRecherche{
