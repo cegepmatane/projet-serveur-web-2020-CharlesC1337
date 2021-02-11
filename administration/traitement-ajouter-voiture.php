@@ -17,7 +17,6 @@ if (!empty($_SESSION)) {
 
 require "../configuration.php";
 require CHEMIN_ACCESSEUR . "VoitureDAO.php";
-include_once "../modele/Voiture.php";
 
 $repertoireImage = $_SERVER['DOCUMENT_ROOT'] . "/projet-serveur-web-2020-CharlesC1337/images/";
 
@@ -30,7 +29,7 @@ $image =  $_FILES['image']['name'];
 if(move_uploaded_file($fichierSource,$fichierDestination))
 {?>
 	<!--Votre envoi de fichier a bien fonctionné
-	<img src="../images/<?=$_FILES['image']['name']?>" alt=""/>-->
+	<img src="../images/$_FILES['image']['name']" alt=""/>-->
 	<?php
 }
 

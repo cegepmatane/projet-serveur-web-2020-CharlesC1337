@@ -29,7 +29,7 @@ $image =  $_FILES['image']['name'];
 if(move_uploaded_file($fichierSource,$fichierDestination))
 {?>
 	<!--Votre envoi de fichier a bien fonctionné
-	<img src="../images/<?=$_FILES['image']['name']?>" alt=""/>-->
+	<img src="../images/$_FILES['image']['name']" alt=""/>-->
 	<?php
 }
 
