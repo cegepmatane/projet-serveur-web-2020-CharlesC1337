@@ -1,11 +1,28 @@
 <?php
-require "BaseDeDonnees.php";
+class AccesBaseDeDonneesVoitures
+{
+    public static $basededonnees = null;
 
-class VoitureDAO{
+    public static function initialiser()
+    {
+        $usager = 'WikiRallye';
+        $motdepasse = 'WikiRallye12!';
+        $hote = 'localhost';
+        $base = 'voiture';
+        $dsn = 'mysql:dbname='.$base.';host=' . $hote;
+        VoitureDAO::$basededonnees = new PDO($dsn, $usager, $motdepasse);
+        VoitureDAO::$basededonnees->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    }
+}
+
+class VoitureDAO extends AccesBaseDeDonneesVoitures{
   public static function lireVoiture($id){
+      
+    VoitureDAO::initialiser();
+      
     $MESSAGE_SQL_VOITURE = "SELECT * FROM rallye WHERE id =:id;";
 
-    $requeteListeVoitures = BaseDeDonnees::GetConnexion()->prepare($MESSAGE_SQL_VOITURE);
+    $requeteListeVoitures = VoitureDAO::$basededonnees->prepare($MESSAGE_SQL_VOITURE);
     $requeteListeVoitures->bindParam(':id', $id, PDO::PARAM_INT);
     $requeteListeVoitures->execute();
     $voiture = $requeteListeVoitures->fetch();
@@ -14,9 +31,12 @@ class VoitureDAO{
   }
 
   public static function listerVoiture(){
+      
+    VoitureDAO::initialiser();
+      
     $MESSAGE_SQL_LISTE_VOITURE = "SELECT id, marque, modele, annee, description, nombreProduit, image, miniature FROM rallye;";
 
-    $requeteListeVoitures = BaseDeDonnees::GetConnexion()->prepare($MESSAGE_SQL_LISTE_VOITURE);
+    $requeteListeVoitures = VoitureDAO::$basededonnees->prepare($MESSAGE_SQL_LISTE_VOITURE);
     $requeteListeVoitures->execute();
     $listeVoitures = $requeteListeVoitures->fetchAll();
 
@@ -25,13 +45,15 @@ class VoitureDAO{
 
   public static function ajouterVoiture($voiture){
       
+    VoitureDAO::initialiser();
+      
     $marque = urldecode($voiture['marque']);
     $modele = urldecode($voiture['modele']);
     $description = urldecode($voiture['description']);
 
      $SQL_AJOUTER_VOITURE = "INSERT into rallye(marque, modele, annee, description, image) VALUES(".":marque,".":modele,".":annee,".":description,".":image".");";
 
-    $requeteAjouterVoiture = BaseDeDonnees::GetConnexion()->prepare($SQL_AJOUTER_VOITURE);
+    $requeteAjouterVoiture = VoitureDAO::$basededonnees->prepare($SQL_AJOUTER_VOITURE);
 
     $requeteAjouterVoiture->bindParam(':marque', $marque, PDO::PARAM_STR);
     $requeteAjouterVoiture->bindParam(':modele', $modele, PDO::PARAM_STR);
@@ -44,6 +66,8 @@ class VoitureDAO{
   }
 
   public static function modifierVoiture($voiture){
+      
+    VoitureDAO::initialiser();
 
     $id = $voiture['id'];
       
@@ -57,7 +81,7 @@ class VoitureDAO{
          $SQL_MODIFIER_VOITURE = "UPDATE rallye SET marque=".":marque".", modele=".":modele".", annee=".":annee".", description=".":description"." WHERE id = " . $id;
     }
 
-    $requeteModifiervoiture = BaseDeDonnees::GetConnexion()->prepare($SQL_MODIFIER_VOITURE);
+    $requeteModifiervoiture = VoitureDAO::$basededonnees->prepare($SQL_MODIFIER_VOITURE);
 
     $requeteModifiervoiture->bindParam(':marque', $marque, PDO::PARAM_STR);
     $requeteModifiervoiture->bindParam(':modele', $modele, PDO::PARAM_STR);
@@ -73,9 +97,12 @@ class VoitureDAO{
   }
 
   public static function supprimerVoiture($id){
+      
+    VoitureDAO::initialiser();
+      
     $SQL_SUPPRIMER_VOITURE = "DELETE FROM rallye WHERE id = " . $id;
 
-    $requeteSupprimerVoiture = BaseDeDonnees::GetConnexion()->prepare($SQL_SUPPRIMER_VOITURE);
+    $requeteSupprimerVoiture = VoitureDAO::$basededonnees->prepare($SQL_SUPPRIMER_VOITURE);
     $requeteSupprimerVoiture->execute();
 
     $reussiteSupprimer = $requeteSupprimerVoiture->execute();
@@ -84,12 +111,15 @@ class VoitureDAO{
   }
 
   public static function lireRechercheRapide($textRecherche){
+      
+    VoitureDAO::initialiser();
+      
     if (empty($textRecherche))
       $MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE = "SELECT id, marque, modele, annee, description, image FROM rallye WHERE marque LIKE '%null%' OR modele LIKE '%null%' OR annee LIKE '%null%' OR description LIKE '%null%';";
     else
       $MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE = "SELECT id, marque, modele, annee, description, image FROM rallye WHERE marque LIKE '%$textRecherche%' OR modele LIKE '%$textRecherche%' OR annee LIKE '%$textRecherche%' OR description LIKE '%$textRecherche%';";
 
-    $requeteResultatRecherche = BaseDeDonnees::GetConnexion()->prepare($MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE);
+    $requeteResultatRecherche = VoitureDAO::$basededonnees->prepare($MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE);
     $requeteResultatRecherche->execute();
     $listResultatRecherche = $requeteResultatRecherche->fetchAll();
 
@@ -97,6 +127,8 @@ class VoitureDAO{
   }
 
   public static function lireRechercheAvance($marque, $modele, $anneeMin, $anneeMax, $conditionGroupe){
+      
+    VoitureDAO::initialiser();
 
     $conditions = array();
     if(!empty($marque))
@@ -123,7 +155,7 @@ class VoitureDAO{
     
     $MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE_AVANCE = $sql;
 
-    $requeteResultatRecherche = BaseDeDonnees::GetConnexion()->prepare($MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE_AVANCE);
+    $requeteResultatRecherche = VoitureDAO::$basededonnees->prepare($MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE_AVANCE);
     $requeteResultatRecherche->execute();
     $listResultatRecherche = $requeteResultatRecherche->fetchAll();
 
@@ -131,9 +163,12 @@ class VoitureDAO{
   }
 
   public static function voirStatistiqueContenuParGroupe(){
+      
+    VoitureDAO::initialiser();
+      
     $MESSAGE_SQL_STATISTIQUE_CONTENU_PAR_GROUPE = "SELECT Groupe as groupe, count(*) as voiture, AVG(nombreProduit) as moyenneProduit, STDDEV_POP(nombreProduit) as ecartTypeNombreProduit, SUM(nombreProduit) as nombreProduitTotal, MIN(nombreProduit) as minNombreProduit, MAX(nombreProduit) as maxNombreProduit FROM rallye GROUP BY Groupe;";
 
-    $requeteStatistiquesContenuParGroupe = BaseDeDonnees::GetConnexion()->prepare($MESSAGE_SQL_STATISTIQUE_CONTENU_PAR_GROUPE);
+    $requeteStatistiquesContenuParGroupe = VoitureDAO::$basededonnees->prepare($MESSAGE_SQL_STATISTIQUE_CONTENU_PAR_GROUPE);
     $requeteStatistiquesContenuParGroupe->execute();
     $statistiquesContenuParGroupe = $requeteStatistiquesContenuParGroupe->fetchAll();
 
@@ -141,9 +176,12 @@ class VoitureDAO{
   }
 
   public static function voirStatistiqueContenu(){
+      
+    VoitureDAO::initialiser();
+      
     $MESSAGE_SQL_STATISTIQUE_CONTENU = "SELECT count(*) as voiture, AVG(nombreProduit) as moyenneProduit, STDDEV_POP(nombreProduit) as ecartTypeNombreProduit, SUM(nombreProduit) as nombreProduitTotal, MIN(nombreProduit) as minNombreProduit, MAX(nombreProduit) as maxNombreProduit FROM rallye;";
 
-    $requeteStatistiquesContenu = BaseDeDonnees::GetConnexion()->prepare($MESSAGE_SQL_STATISTIQUE_CONTENU);
+    $requeteStatistiquesContenu = VoitureDAO::$basededonnees->prepare($MESSAGE_SQL_STATISTIQUE_CONTENU);
     $requeteStatistiquesContenu->execute();
     $statistiquesContenu = $requeteStatistiquesContenu->fetchAll();
 

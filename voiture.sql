@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 11 fév. 2021 à 04:48
+-- Généré le : mer. 03 fév. 2021 à 06:19
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 7.3.26
 
@@ -30,10 +30,6 @@ SET time_zone = "+00:00";
 CREATE TABLE `membre` (
   `id` int(11) NOT NULL,
   `pseudonyme` varchar(255) NOT NULL,
-  `nom` varchar(255) NOT NULL,
-  `prenom` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `admin` tinyint(1) NOT NULL,
   `motDePasse` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -41,8 +37,11 @@ CREATE TABLE `membre` (
 -- Déchargement des données de la table `membre`
 --
 
-INSERT INTO `membre` (`id`, `pseudonyme`, `nom`, `prenom`, `email`, `admin`, `motDePasse`) VALUES
-(6, 'xd', 'xdnom', 'xdprenom', 'xd@hotmail.com', 1, '$2y$10$V1eyRiR/FXhT26qxO0fGEuqaHOrtvXvNiQmEcKxHzO0hXShevAdYG');
+INSERT INTO `membre` (`id`, `pseudonyme`, `motDePasse`) VALUES
+(1, 'Charles', '12345'),
+(2, 'Antoine', '1234'),
+(3, 'test', '123'),
+(4, 'test420', '1');
 
 -- --------------------------------------------------------
 
@@ -120,13 +119,13 @@ ALTER TABLE `visiteurs`
 -- AUTO_INCREMENT pour la table `membre`
 --
 ALTER TABLE `membre`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `rallye`
 --
 ALTER TABLE `rallye`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `visiteurs`

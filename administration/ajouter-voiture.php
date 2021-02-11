@@ -36,18 +36,18 @@ if (!empty($_SESSION)) {
 		<form action="traitement-ajouter-voiture.php" method="post" enctype="multipart/form-data">
 		
 			<div class="champs">
-				<label for="marque">Marque</label>
-				<input type="text" name="marque" id="marque"/>			
+				<label for="marque">Marque *</label>
+				<input type="text" name="marque" id="marque" required/>			
 			</div>
 		
 			<div class="champs">
-				<label for="modele">Modèle</label>
-				<input type="text" name="modele" id="modele"/>			
+				<label for="modele">Modèle *</label>
+				<input type="text" name="modele" id="modele" required/>			
 			</div>
 			
 			<div class="champs">
-				<label for="annee">Année de sortie</label>
-				<input type="text" name="annee" id="annee"/>			
+				<label for="annee">Année de sortie *</label>
+				<input type="text" name="annee" id="annee" required/>			
 			</div>	
 			
 			<div class="champs">

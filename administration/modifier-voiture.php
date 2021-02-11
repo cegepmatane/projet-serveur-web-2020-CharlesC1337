@@ -41,18 +41,18 @@ $voiture = VoitureDAO::lireVoiture($noVoiture);
 		<form action="traitement-modifier-voiture.php?voiture=<?php echo $voiture['id']; ?>" method="post" enctype="multipart/form-data">
 		
 			<div class="champs">
-				<label for="marque">Marque</label>
-				<input type="text" name="marque" id="marque" value="<?php echo $voiture['marque']?>"/>			
+				<label for="marque">Marque *</label>
+				<input type="text" name="marque" id="marque" value="<?php echo $voiture['marque']?>" required/>			
 			</div>
 		
 			<div class="champs">
-				<label for="modele">Modèle</label>
-				<input type="text" name="modele" id="modele" value="<?php echo $voiture['modele']?>"/>			
+				<label for="modele">Modèle *</label>
+				<input type="text" name="modele" id="modele" value="<?php echo $voiture['modele']?>" required/>			
 			</div>
 			
 			<div class="champs">
-				<label for="annee">Année de sortie</label>
-				<input type="text" name="annee" id="annee" value="<?php echo $voiture['annee']?>"/>			
+				<label for="annee">Année de sortie *</label>
+				<input type="text" name="annee" id="annee" value="<?php echo $voiture['annee']?>" required/>			
 			</div>	
 			
 			<div class="champs">
