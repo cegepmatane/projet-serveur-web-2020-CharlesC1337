@@ -69,7 +69,7 @@ $listResultatRecherche = VoitureDAO::lireRechercheAvance($textMarque, $textModel
         {
     ?>
         
-        <a class="lienResultatRecherche" href="voiture.php?id=<?= $resultat["id"];?>">
+        <a class="lienResultatRecherche" href="voiture.php?voiture=<?= $resultat["id"];?>">
             <li class="voitureResultatRecherche">
                 <img src="images/<?= $resultat["image"]; ?>" alt="Miniature" class="imageResultatRecherche"></img>
                 <h3><?= $resultat["marque"]; ?> <?= $resultat["modele"]; ?></h3>

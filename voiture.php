@@ -2,7 +2,7 @@
 require "configuration.php";
 require CHEMIN_ACCESSEUR . "VoitureDAO.php";
 
-$id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+$id = filter_input(INPUT_GET, 'voiture', FILTER_VALIDATE_INT);
 $voiture = VoitureDAO::lireVoiture($id);
 
 include "entete.php";

@@ -20,13 +20,35 @@ if(move_uploaded_file($fichierSource,$fichierDestination))
 $filtresMembre = [];
 
 $filtresMembre['pseudonyme'] = FILTER_SANITIZE_ENCODED;
+$filtresMembre['prenom'] = FILTER_SANITIZE_ENCODED;
+$filtresMembre['nom'] = FILTER_SANITIZE_ENCODED;
+$filtresMembre['email'] = FILTER_SANITIZE_ENCODED;
 $filtresMembre['motDePasse'] = FILTER_SANITIZE_ENCODED;
   
 $membre = filter_input_array(INPUT_POST, $filtresMembre);
 
-//$membre['image'] = $image;
+$membre['motDePasse'] = password_hash($membre['motDePasse'] ,PASSWORD_DEFAULT);
 
-$reussiteAjout = MembreDAO::ajouterMembre($membre);
+$checkPseudonyme = MembreDAO::lireMembreParPseudonyme($membre["pseudonyme"]);
+
+if (!empty($checkPseudonyme)){
+    echo '<script type="text/javascript">'; 
+    echo 'alert("Ce nom d\'utilisateur éxiste déjà!");'; 
+    echo 'window.location.href = "inscription.php";';
+    echo '</script>';
+}else{
+    $checkCourriel = MembreDAO::lireMembreParCourriel($membre["email"]);
+
+    if (!empty($checkCourriel)){
+        echo '<script type="text/javascript">'; 
+        echo 'alert("Cette addresse de courriel éxiste déjà!");'; 
+        echo 'window.location.href = "inscription.php";';
+        echo '</script>';
+    }else{
+        $reussiteAjout = MembreDAO::ajouterMembre($membre);
+    }
+}
+//$membre['image'] = $image;
 ?>
 
 <?php

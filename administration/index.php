@@ -1,4 +1,20 @@
 <?php
+session_start();
+
+if (!empty($_SESSION)) {
+    if ($_SESSION['admin']){
+        
+    }else{
+        echo '<script type="text/javascript">';  
+        echo 'window.location.href = "../index.php";';
+        echo '</script>';
+    }
+}else{
+    echo '<script type="text/javascript">';  
+    echo 'window.location.href = "../index.php";';
+    echo '</script>';
+}
+
 require "../configuration.php";
 require CHEMIN_ACCESSEUR . "VisiteursDAO.php";
 

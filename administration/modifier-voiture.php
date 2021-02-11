@@ -1,9 +1,25 @@
 <?php
-	require "../configuration.php";
-	require CHEMIN_ACCESSEUR . "VoitureDAO.php";
+session_start();
 
-	$noVoiture = $_GET['voiture'];
-	$voiture = VoitureDAO::lireVoiture($noVoiture);
+if (!empty($_SESSION)) {
+    if ($_SESSION['admin']){
+        
+    }else{
+        echo '<script type="text/javascript">';  
+        echo 'window.location.href = "../index.php";';
+        echo '</script>';
+    }
+}else{
+    echo '<script type="text/javascript">';  
+    echo 'window.location.href = "../index.php";';
+    echo '</script>';
+}
+
+require "../configuration.php";
+require CHEMIN_ACCESSEUR . "VoitureDAO.php";
+
+$noVoiture = $_GET['voiture'];
+$voiture = VoitureDAO::lireVoiture($noVoiture);
 ?>
 
 <!doctype html>

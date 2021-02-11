@@ -19,7 +19,7 @@ include "getVisiteurInfos.php";
     foreach($listVoiture as $voiture)
     {
 ?>
-        <a class="lienListeVoiture" href="voiture.php?id=<?= $voiture["id"];?>">
+        <a class="lienListeVoiture" href="voiture.php?voiture=<?= $voiture["id"];?>">
             <li class="voitureListeVoiture">
                 <img src="images/<?= $voiture["image"]; ?>" alt="Miniature" class="imageListeVoiture"></img>
                 <h3><?= $voiture["marque"]; ?> <?= $voiture["modele"]; ?></h3>

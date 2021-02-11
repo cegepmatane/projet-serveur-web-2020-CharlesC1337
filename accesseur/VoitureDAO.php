@@ -24,15 +24,19 @@ class VoitureDAO{
   }
 
   public static function ajouterVoiture($voiture){
+      
+    $marque = urldecode($voiture['marque']);
+    $modele = urldecode($voiture['modele']);
+    $description = urldecode($voiture['description']);
 
-    $SQL_AJOUTER_VOITURE = "INSERT into rallye(marque, modele, annee, description, image) VALUES(".":marque,".":modele,".":annee,".":description,".":image".");";
+     $SQL_AJOUTER_VOITURE = "INSERT into rallye(marque, modele, annee, description, image) VALUES(".":marque,".":modele,".":annee,".":description,".":image".");";
 
     $requeteAjouterVoiture = BaseDeDonnees::GetConnexion()->prepare($SQL_AJOUTER_VOITURE);
 
-    $requeteAjouterVoiture->bindParam(':marque', $voiture['marque'], PDO::PARAM_STR);
-    $requeteAjouterVoiture->bindParam(':modele', $voiture['modele'], PDO::PARAM_STR);
+    $requeteAjouterVoiture->bindParam(':marque', $marque, PDO::PARAM_STR);
+    $requeteAjouterVoiture->bindParam(':modele', $modele, PDO::PARAM_STR);
     $requeteAjouterVoiture->bindParam(':annee', $voiture['annee'], PDO::PARAM_STR);
-    $requeteAjouterVoiture->bindParam(':description', $voiture['description'], PDO::PARAM_STR);
+    $requeteAjouterVoiture->bindParam(':description', $description, PDO::PARAM_STR);
     $requeteAjouterVoiture->bindParam(':image', $voiture['image'], PDO::PARAM_STR);
 
     $reussiteAjout = $requeteAjouterVoiture->execute();
@@ -42,16 +46,27 @@ class VoitureDAO{
   public static function modifierVoiture($voiture){
 
     $id = $voiture['id'];
-    
-    $SQL_MODIFIER_VOITURE = "UPDATE rallye SET marque=".":marque"." modele=".":modele"." annee=".":annee"." description=".":description"." image=".":image"." WHERE id = " . $id;
+      
+    $marque = urldecode($voiture['marque']);
+    $modele = urldecode($voiture['modele']);
+    $description = urldecode($voiture['description']);
+      
+    if (!empty($voiture['image'])){
+         $SQL_MODIFIER_VOITURE = "UPDATE rallye SET marque=".":marque".", modele=".":modele".", annee=".":annee".", description=".":description".", image=".":image"." WHERE id = " . $id;
+    }else{
+         $SQL_MODIFIER_VOITURE = "UPDATE rallye SET marque=".":marque".", modele=".":modele".", annee=".":annee".", description=".":description"." WHERE id = " . $id;
+    }
 
     $requeteModifiervoiture = BaseDeDonnees::GetConnexion()->prepare($SQL_MODIFIER_VOITURE);
 
-    $requeteModifiervoiture->bindParam(':marque', $voiture['marque'], PDO::PARAM_STR);
-    $requeteModifiervoiture->bindParam(':modele', $voiture['modele'], PDO::PARAM_STR);
+    $requeteModifiervoiture->bindParam(':marque', $marque, PDO::PARAM_STR);
+    $requeteModifiervoiture->bindParam(':modele', $modele, PDO::PARAM_STR);
     $requeteModifiervoiture->bindParam(':annee', $voiture['annee'], PDO::PARAM_STR);
-    $requeteModifiervoiture->bindParam(':description', $voiture['description'], PDO::PARAM_STR);
-    $requeteModifiervoiture->bindParam(':image', $voiture['image'], PDO::PARAM_STR);
+    $requeteModifiervoiture->bindParam(':description', $description, PDO::PARAM_STR);
+      
+    if (!empty($voiture['image'])){
+        $requeteModifiervoiture->bindParam(':image', $voiture['image'], PDO::PARAM_STR);
+    }
 
     $reussiteModification = $requeteModifiervoiture->execute();
     return $reussiteModification;
